@@ -1,0 +1,41 @@
+{
+  "ollama_model": "gemma3:12b",
+  "ollama_host": "http://localhost:11434",
+  "ollama_temperature": 0.1,
+  "gmail_scopes": [
+    "https://www.googleapis.com/auth/gmail.readonly",
+    "https://www.googleapis.com/auth/gmail.modify"
+  ],
+  "ai_folder_prefix": "AI_AUTO_",
+  "similarity_prompt_v3": [
+    "You are an expert email classification assistant. Your task is to determine if a new email belongs to the category '{category_name}'.",
+    "Pay VERY CLOSE ATTENTION to the SENDER.",
+    "",
+    "Category to evaluate: '{category_name}'",
+    "",
+    "--- BEGIN EXAMPLE EMAIL(S) for category '{category_name}' ---",
+    "{example_emails_formatted_text}",
+    "--- END OF EXAMPLE EMAIL(S) ---",
+    "",
+    "--- BEGIN NEW EMAIL TO CLASSIFY ---",
+    "Sender: {new_email_sender}",
+    "Subject: {new_email_subject}",
+    "Received Date: {new_email_date}",
+    "Body Snippet: {new_email_snippet}",
+    "Body (first {max_body_length_for_llm} chars): {new_email_body}",
+    "--- END OF NEW EMAIL ---",
+    "",
+    "CONSIDER THE FOLLOWING CRITICALLY:",
+    "1. SENDER MATCH: Does the 'New Email Sender' ('{new_email_sender}') EXACTLY MATCH or come from the EXACT SAME DOMAIN (e.g., @domain.com) as the sender(s) in the Example Email(s)? For the category '{category_name}', a sender match is OF PARAMOUNT IMPORTANCE.",
+    "   - If the category is something like a newsletter (e.g., 'MEDIUM_DAILY_DIGEST'), and the new email's sender domain is NOT 'medium.com', it is ALMOST CERTAINLY NOT a match, regardless of content similarity.",
+    "2. CONTENT SIMILARITY: If, AND ONLY IF, there's a strong sender/domain match (or if sender match is less critical for *other* types of categories), then consider if the subject and body are similar.",
+    "",
+    "Based on this strict evaluation, especially the sender for category '{category_name}', does the new email belong to this category?",
+    "Respond ONLY with 'YES' or 'NO'."
+  ],
+  "max_emails_to_scan_inbox": 50,
+  "max_examples_per_folder": 2,
+  "inbox_label_name": "INBOX",
+  "max_body_length_for_llm": 1000,
+  "log_level": "INFO"
+}

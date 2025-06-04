@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.hypothesis/
+.pytest_cache/
+instance/
+env/
+venv/
+.venv/
+
+# Credentials & Tokens (IMPORTANT!)
+credentials.json
+token.json
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
