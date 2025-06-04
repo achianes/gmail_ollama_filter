@@ -124,3 +124,7 @@ Please make sure to update tests as appropriate. (If you have tests)
 ## License 
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+[![Support me on PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=T4SKREGYTG5ES)
+   
